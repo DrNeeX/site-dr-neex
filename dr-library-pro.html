@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr Library Pro | DR NEEX</title>
+    <meta name="description" content="Découvrez Dr Library Pro, le gestionnaire d'actifs et d'effets visuels ultime pour After Effects et Premiere Pro de DR NEEX. VFX et presets instantanés.">
+    <meta name="keywords" content="VFX library, presets, transitions, After Effects extension, Premiere Pro, DR NEEX, DR Concept">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dr-concept.com/dr-library-pro.html">
+    <meta property="og:title" content="Dr Library Pro - Gestionnaire VFX & Presets | DR NEEX">
+    <meta property="og:description" content="Découvrez Dr Library Pro, le gestionnaire d'actifs et d'effets visuels ultime pour After Effects et Premiere Pro de DR NEEX. VFX et presets instantanés.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- WebGL Background -->
+    <canvas id="webgl-bg"></canvas>
+
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="/logo-dr-neex.png" alt="DR NEEX" class="header-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                <span class="logo-text" style="display: none;">DR NEEX</span>
+                <div class="beta-tag">BETA</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" data-i18n="nav.backToSuite">← Back to Suite</a></li>
+                    <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
+                    <li><a href="#access" class="btn-nav btn-glass" data-i18n="nav.contact">Get Access</a></li>
+                    <li class="lang-switch">
+                        <button onclick="setLanguage('en')" class="lang-btn">EN</button>
+                        <span>/</span>
+                        <button onclick="setLanguage('fr')" class="lang-btn active">FR</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="plugin-page">
+        <section class="plugin-hero">
+            <div class="container">
+                <div class="plugin-header gsap-fade-up">
+                    <div class="plugin-icon">📚</div>
+                    <h1>Dr <span class="gradient-text-primary">Library Pro</span></h1>
+                    <p class="plugin-subtitle" data-i18n="products.librarypro.hero.desc">L'extension ultime pour Premiere Pro & After Effects. Accédez à des milliers de presets, VFX et transitions en un clic.</p>
+                    <div class="cta-group" style="justify-content: center; margin-top: 2rem;">
+                        <a href="index.html#access" class="btn btn-primary" data-i18n="products.librarypro.hero.cta">Télécharger la Version d'Essai</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="plugin-features">
+            <div class="container">
+                <h2 class="gsap-fade-up" data-i18n="products.librarypro.features.title">Core Capabilities</h2>
+                <div class="feature-grid">
+                    <div class="feature-card gsap-fade-up">
+                        <h3 data-i18n="products.librarypro.features.f1Title">Infinite Library</h3>
+                        <p data-i18n="products.librarypro.features.f1Desc">Over 1000+ text presets, transitions, and color gradings ready to use.</p>
+                    </div>
+                    <div class="feature-card gsap-fade-up">
+                        <h3 data-i18n="products.librarypro.features.f2Title">VFX Studio</h3>
+                        <p data-i18n="products.librarypro.features.f2Desc">Integrate cinema-quality visual effects: lightning, smoke, particles, without leaving your timeline.</p>
+                    </div>
+                    <div class="feature-card gsap-fade-up">
+                        <h3 data-i18n="products.librarypro.features.f3Title">Ultra-Fast Workflow</h3>
+                        <p data-i18n="products.librarypro.features.f3Desc">Instant hover preview. Drag and drop to apply. Save hours of editing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="access" class="pro-workflow" style="padding: 6rem 0; border-top: 1px solid var(--border-glass);">
+            <div class="container" style="text-align: center;">
+                <h2 class="gsap-fade-up" style="margin-bottom: 2rem;" data-i18n="products.librarypro.contact.title">Prêt à créer ?</h2>
+                <div class="gsap-fade-up">
+                    <a href="index.html#access" class="btn btn-primary" data-i18n="products.librarypro.contact.cta">Nous Contacter</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <img src="/logo-decibel.png" alt="Decibel Records" class="footer-logo" onerror="this.style.display='none';">
+                <h3>DR NEEX</h3>
+                <p>&copy; <span id="year"></span> DECIBEL RECORDS / DR CONCEPT. All rights reserved.</p>
+            </div>
+            <div class="footer-socials">
+                <a href="#">Twitter</a>
+                <a href="#">Discord</a>
+                <a href="https://www.instagram.com/dr_neex_studio?igsh=dm83eDFibjJ2YjJ6" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vite Entry Point -->
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

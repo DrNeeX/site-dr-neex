@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr LightGen | DR NEEX</title>
+    <meta name="description" content="Découvrez Dr LightGen, le module de rendu volumétrique IA et de re-éclairage PBR en temps réel de DR NEEX. Simulation d'éclairage physique directement dans After Effects.">
+    <meta name="keywords" content="relighting, PBR, global illumination, After Effects, AI, VFX, plugin, DR NEEX, DR Concept">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dr-concept.com/dr-lightgen.html">
+    <meta property="og:title" content="Dr LightGen - Rendu Volumétrique IA | DR NEEX">
+    <meta property="og:description" content="Découvrez Dr LightGen, le module de rendu volumétrique IA et de re-éclairage PBR en temps réel de DR NEEX. Simulation d'éclairage physique dans After Effects.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- WebGL Background -->
+    <canvas id="webgl-bg"></canvas>
+
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="/logo-dr-neex.png" alt="DR NEEX" class="header-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                <span class="logo-text" style="display: none;">DR NEEX</span>
+                <div class="beta-tag">BETA</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" data-i18n="nav.backToSuite">← Back to Suite</a></li>
+                    <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
+                    <li><a href="#access" class="btn-nav btn-glass">Get Access</a></li>
+                    <li class="lang-switch">
+                        <button onclick="setLanguage('en')" class="lang-btn">EN</button>
+                        <span>/</span>
+                        <button onclick="setLanguage('fr')" class="lang-btn active">FR</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="plugin-page">
+        <section class="plugin-hero">
+            <div class="container">
+                <div class="plugin-header gsap-fade-up">
+                    <div class="plugin-icon">💡</div>
+                    <h1>Dr <span class="gradient-text-primary">LightGen</span></h1>
+                    <p class="plugin-subtitle">AI Volumetric Rendering & Global Illumination.</p>
+                </div>
+            </div>
+
+            <div class="container-wide gsap-fade-up">
+                <!-- Video/Demo Showcase -->
+                <div class="video-placeholder-container">
+                    <div class="video-placeholder">
+                        <div class="play-btn">▶</div>
+                        <span class="placeholder-text">Demonstration Video Coming Soon</span>
+                    </div>
+                    <div class="placeholder-glow"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="plugin-features">
+            <div class="container">
+                <h2 class="gsap-fade-up">Core <span class="gradient-text-secondary">Capabilities</span></h2>
+                <div class="feature-grid">
+                    <div class="feature-card gsap-fade-up">
+                        <h3>Real-time PBR Relighting</h3>
+                        <p>Inject physically accurate light sources into 2D footage with deep-learning estimated normals.</p>
+                    </div>
+                    <div class="feature-card gsap-fade-up">
+                        <h3>Global Illumination</h3>
+                        <p>Simulate natural light bounce and volumetric scattering directly in the After Effects viewport.</p>
+                    </div>
+                    <div class="feature-card gsap-fade-up">
+                        <h3>Cinematic Film Emulation</h3>
+                        <p>Apply S-Curve contrast, Red Halation bloom, and YCbCr grain mapped to scene luminance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <img src="/logo-decibel.png" alt="Decibel Records" class="footer-logo" onerror="this.style.display='none';">
+                <h3>DR NEEX</h3>
+                <p>&copy; <span id="year"></span> DECIBEL RECORDS / DR CONCEPT. All rights reserved.</p>
+            </div>
+            <div class="footer-socials">
+                <a href="#">Twitter</a>
+                <a href="#">Discord</a>
+                <a href="https://www.instagram.com/dr_neex_studio?igsh=dm83eDFibjJ2YjJ6" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vite Entry Point -->
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

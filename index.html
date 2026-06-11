@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DR NEEX | Next Gen AI Tools</title>
+    <meta name="description" content="Découvrez la suite d'outils d'intelligence artificielle DR Concept / DR NEEX pour After Effects et Premiere Pro. Automatisez la rotoscopie, le re-éclairage et accélérez votre workflow.">
+    <meta name="keywords" content="VFX, AI, After Effects, Premiere Pro, rotoscopie, relighting, 3D, intelligence artificielle, plugin, DR NEEX, DR Concept">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dr-concept.com/">
+    <meta property="og:title" content="DR NEEX | Next Gen AI Tools for VFX">
+    <meta property="og:description" content="The ultimate suite of AI tools for After Effects & Premiere Pro. Automate the mundane, unleash the impossible.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="DR NEEX | Next Gen AI Tools for VFX">
+    <meta property="twitter:description" content="The ultimate suite of AI tools for After Effects & Premiere Pro. Automate the mundane, unleash the impossible.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- WebGL Background -->
+    <canvas id="webgl-bg"></canvas>
+
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="/logo-dr-neex.png" alt="DR NEEX" class="header-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                <span class="logo-text" style="display: none;">DR NEEX</span>
+                <div class="beta-tag">BETA</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#hero" data-i18n="nav.home">Home</a></li>
+                    <li><a href="#modules" data-i18n="nav.software">Modules</a></li>
+                    <li><a href="#vision" data-i18n="nav.about">Vision</a></li>
+                    <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
+                    <li><a href="#access" class="btn-nav btn-glass" data-i18n="nav.contact">Get Access</a></li>
+                    <li class="lang-switch">
+                        <button onclick="setLanguage('en')" class="lang-btn">EN</button>
+                        <span>/</span>
+                        <button onclick="setLanguage('fr')" class="lang-btn active">FR</button>
+                    </li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-trigger">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container hero-content">
+                <div class="hero-label gsap-fade-up">AI-POWERED VFX ECOSYSTEM</div>
+                <h1 class="gsap-fade-up">
+                    <span class="gradient-text-primary">IMAGINE.</span><br>
+                    <span class="outlined-text">GENERATE.</span><br>
+                    <span class="gradient-text-secondary">CREATE.</span>
+                </h1>
+                <p class="gsap-fade-up" data-i18n="hero.subtitle">
+                    The ultimate suite of AI tools for After Effects & Premiere Pro.
+                    Automate the mundane, unleash the impossible.
+                </p>
+                <div class="cta-group gsap-fade-up">
+                    <a href="#modules" class="btn btn-primary">
+                        <span class="btn-text" data-i18n="hero.cta1">Explore Modules</span>
+                        <span class="btn-icon">→</span>
+                    </a>
+                    <a href="#vision" class="btn btn-glass" data-i18n="hero.cta2">Watch Reel</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="modules">
+            <div class="container">
+                <div class="section-header gsap-fade-up">
+                    <h2 data-i18n="products.title">The <span class="gradient-text-primary">Neex Suite</span></h2>
+                    <p data-i18n="products.subtitle">Powerful individual modules. Unstoppable together.</p>
+                </div>
+
+                <div class="bento-grid single-item">
+                    <!-- Featured Module 1: Dr LightGen (Hidden for now)
+                    <article class="bento-card gsap-fade-up">
+                        <div class="card-icon">💡</div>
+                        <h3 data-i18n="products.lightgen.title">Dr LightGen</h3>
+                        <p data-i18n="products.lightgen.desc">AI Volumetric Rendering. Real-time PBR Relighting and Global Illumination for After Effects.</p>
+                        <a href="dr-lightgen.html" class="link-arrow">Explore ↗</a>
+                    </article>
+                    -->
+
+                    <!-- Featured Module 2: Dr RBackground -->
+                    <article class="bento-card gsap-fade-up">
+                        <div class="card-icon">✂️</div>
+                        <h3 data-i18n="products.rbackground.title">Dr RBackground</h3>
+                        <p data-i18n="products.rbackground.desc">One-click AI Rotoscoping. Pixel-perfect segmentation. Goodbye Green Screen.</p>
+                        <a href="dr-rbackground.html" class="link-arrow">Explore ↗</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="vision">
+            <div class="container vision-content">
+                <div class="vision-text gsap-fade-up">
+                    <h2 data-i18n="about.title">Built for <span class="highlight">Speed</span></h2>
+                    <p data-i18n="about.desc">
+                        DR NEEX isn't just a set of plugins. It's a new way to think about post-production.
+                        We combine state-of-the-art AI with intuitive workflows.
+                    </p>
+                </div>
+                <div class="vision-stats gsap-fade-up">
+                    <div class="stat-item">
+                        <span class="stat-number">10x</span>
+                        <span class="stat-label">Faster Workflow</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">0%</span>
+                        <span class="stat-label">Grunt Work</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="access">
+            <div class="container access-wrapper">
+                <div class="access-card gsap-fade-up">
+                    <h2 data-i18n="contact.title">Join the <span class="gradient-text-secondary">Revolution</span></h2>
+                    <p data-i18n="contact.subtitle">Get early access to the beta and start creating.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="enter_your_email" required
+                            data-i18n-placeholder="contact.placeholder">
+                        <button type="submit" class="btn btn-primary" data-i18n="contact.submit">Request Access</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <img src="/logo-decibel.png" alt="Decibel Records" class="footer-logo" onerror="this.style.display='none';">
+                <h3>DR NEEX</h3>
+                <p>&copy; <span id="year"></span> DECIBEL RECORDS / DR CONCEPT. All rights reserved.</p>
+            </div>
+            <div class="footer-socials">
+                <a href="mailto:dev@dr-neex.com">Email</a>
+                <a href="#">Twitter</a>
+                <a href="#">Discord</a>
+                <a href="https://www.instagram.com/dr_neex_studio?igsh=dm83eDFibjJ2YjJ6" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vite Entry Point -->
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

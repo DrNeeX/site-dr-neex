@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing & Subscriptions | DR NEEX</title>
+    <meta name="description" content="Découvrez les offres de prix et les abonnements pour la suite DR NEEX. Choisissez le forfait adapté à vos besoins en production vidéo et effets visuels IA.">
+    <meta name="keywords" content="tarifs, abonnement, prix, VFX, After Effects, Premiere Pro, DR NEEX, DR Concept">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dr-concept.com/pricing.html">
+    <meta property="og:title" content="Tarifs & Offres | DR NEEX">
+    <meta property="og:description" content="Découvrez les offres de prix et les abonnements pour la suite DR NEEX. Choisissez le forfait adapté à vos besoins en production vidéo et effets visuels IA.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- WebGL Background -->
+    <canvas id="webgl-bg"></canvas>
+
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="/logo-dr-neex.png" alt="DR NEEX" class="header-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                <span class="logo-text" style="display: none;">DR NEEX</span>
+                <div class="beta-tag">BETA</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                    <li><a href="index.html#modules" data-i18n="nav.software">Modules</a></li>
+                    <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
+                    <li><a href="index.html#access" class="btn-nav btn-glass" data-i18n="nav.contact">Get Access</a></li>
+                    <li class="lang-switch">
+                        <button onclick="setLanguage('en')" class="lang-btn">EN</button>
+                        <span>/</span>
+                        <button onclick="setLanguage('fr')" class="lang-btn active">FR</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="plugin-page">
+        <section class="pricing-section">
+            <div class="container">
+                <div class="plugin-header gsap-fade-up">
+                    <h1 class="pricing-title" data-i18n="pricing.title">Pricing & <span class="gradient-text-primary">Subscriptions</span></h1>
+                    <p class="pricing-subtitle" data-i18n="pricing.subtitle">Choose the perfect plan for your visual production workflow.</p>
+                </div>
+
+                <div class="pricing-grid">
+                    <!-- Trial Plan Card -->
+                    <article class="pricing-card gsap-fade-up">
+                        <div class="promo-badge">PROMO</div>
+                        <div class="pricing-card-header">
+                            <h3 class="pricing-card-name" data-i18n="pricing.tiers.trial.name">Trial Version</h3>
+                            <div class="pricing-card-price-container">
+                                <span class="pricing-card-price" data-i18n="pricing.tiers.trial.price">€0</span>
+                                <span class="pricing-card-period" data-i18n="pricing.tiers.trial.period">Free</span>
+                            </div>
+                        </div>
+                        <p class="pricing-card-desc" data-i18n="pricing.tiers.trial.desc">1 month of free full access (launch offer for 5 months, limit 1 account/PC), then reverts to standard Trial (1h/month).</p>
+                        <ul class="pricing-card-features">
+                            <li>1080p Max Resolution</li>
+                            <li>1 hour / month standard limit</li>
+                            <li>Standard AI Models</li>
+                            <li>No watermarks</li>
+                        </ul>
+                        <a href="index.html#access" class="btn btn-glass" data-i18n="pricing.tiers.trial.cta">Download</a>
+                    </article>
+
+                    <!-- Pro Monthly Plan Card -->
+                    <article class="pricing-card featured gsap-fade-up">
+                        <div class="pricing-card-header">
+                            <h3 class="pricing-card-name" data-i18n="pricing.tiers.pro.name">Pro Monthly</h3>
+                            <div class="pricing-card-price-container">
+                                <span class="pricing-card-price" data-i18n="pricing.tiers.pro.price">€29</span>
+                                <span class="pricing-card-period" data-i18n="pricing.tiers.pro.period">/ month</span>
+                            </div>
+                        </div>
+                        <p class="pricing-card-desc" data-i18n="pricing.tiers.pro.desc">Unlimited access to all modules and advanced features.</p>
+                        <ul class="pricing-card-features">
+                            <li>Unlimited Max Resolution (4K+)</li>
+                            <li>No processing time limit</li>
+                            <li>Full Access (SOTA Models)</li>
+                            <li>Advanced features enabled</li>
+                        </ul>
+                        <a href="index.html#access" class="btn btn-primary" data-i18n="pricing.tiers.pro.cta">Subscribe</a>
+                    </article>
+
+                    <!-- Lifetime Plan Card -->
+                    <article class="pricing-card lifetime gsap-fade-up">
+                        <div class="pricing-card-header">
+                            <h3 class="pricing-card-name" data-i18n="pricing.tiers.lifetime.name">Lifetime License</h3>
+                            <div class="pricing-card-price-container">
+                                <span class="pricing-card-price" data-i18n="pricing.tiers.lifetime.price">€399</span>
+                                <span class="pricing-card-period" data-i18n="pricing.tiers.lifetime.period">One-time purchase</span>
+                            </div>
+                        </div>
+                        <p class="pricing-card-desc" data-i18n="pricing.tiers.lifetime.desc">The full DR Concept suite forever. No subscription, free updates.</p>
+                        <ul class="pricing-card-features">
+                            <li>Single payment, owned forever</li>
+                            <li>All Pro features included</li>
+                            <li>Free updates & premium support</li>
+                            <li>No recurring billing</li>
+                        </ul>
+                        <a href="index.html#access" class="btn btn-glass" data-i18n="pricing.tiers.lifetime.cta">Buy Now</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Feature Comparison Section -->
+        <section class="comparison-section">
+            <div class="container">
+                <h2 class="comparison-title gsap-fade-up" data-i18n="pricing.comparison.title">Detailed Comparison</h2>
+                <div class="comparison-table-wrapper gsap-fade-up">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th class="col-feature" data-i18n="pricing.comparison.feature">Feature</th>
+                                <th class="col-trial" data-i18n="pricing.comparison.trial">Trial</th>
+                                <th class="col-pro" data-i18n="pricing.comparison.pro">Pro & Lifetime</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="feature-title" data-i18n="pricing.features.resolution">Max Resolution</td>
+                                <td class="val-trial">1080p max</td>
+                                <td class="val-pro" data-i18n="pricing.features.unlimited">Unlimited (4K+)</td>
+                            </tr>
+                            <tr>
+                                <td class="feature-title" data-i18n="pricing.features.timeLimit">Processing Time</td>
+                                <td class="val-trial" data-i18n="pricing.features.timeLimitVal">1 hour / month</td>
+                                <td class="val-pro" data-i18n="pricing.features.unlimited">Unlimited (4K+)</td>
+                            </tr>
+                            <tr>
+                                <td class="feature-title" data-i18n="pricing.features.bitDepth">Color Bit Depth</td>
+                                <td class="val-trial" data-i18n="pricing.features.bitDepthVal">10-bit max</td>
+                                <td class="val-pro" data-i18n="pricing.features.bitDepthPro">32-bit Linear (EXR)</td>
+                            </tr>
+                            <tr>
+                                <td class="feature-title" data-i18n="pricing.features.models">AI Models</td>
+                                <td class="val-trial" data-i18n="pricing.features.modelsVal">Standard only</td>
+                                <td class="val-pro" data-i18n="pricing.features.modelsPro">Full Access (SOTA)</td>
+                            </tr>
+                            <tr>
+                                <td class="feature-title" data-i18n="pricing.features.alphaMatting">Alpha Matting & Refinement</td>
+                                <td class="val-trial"><span class="status-icon status-no">✖</span></td>
+                                <td class="val-pro"><span class="status-icon status-yes">✔</span></td>
+                            </tr>
+                            <tr>
+                                <td class="feature-title" data-i18n="pricing.features.upscale">4x Super Resolution</td>
+                                <td class="val-trial"><span class="status-icon status-no">✖</span></td>
+                                <td class="val-pro"><span class="status-icon status-yes">✔</span></td>
+                            </tr>
+                            <tr>
+                                <td class="feature-title" data-i18n="pricing.features.compression">Export Compression</td>
+                                <td class="val-trial" data-i18n="pricing.features.compressionVal">Strong (Level 6)</td>
+                                <td class="val-pro" data-i18n="pricing.features.compressionPro">Customizable (Levels 1-9)</td>
+                            </tr>
+                            <tr>
+                                <td class="feature-title" data-i18n="pricing.features.contour">Contour Options</td>
+                                <td class="val-trial" data-i18n="pricing.features.contourVal">Standard / Fast only</td>
+                                <td class="val-pro" data-i18n="pricing.features.contourPro">High Quality (Advanced)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <img src="/logo-decibel.png" alt="Decibel Records" class="footer-logo" onerror="this.style.display='none';">
+                <h3>DR NEEX</h3>
+                <p>&copy; <span id="year"></span> DECIBEL RECORDS / DR CONCEPT. All rights reserved.</p>
+            </div>
+            <div class="footer-socials">
+                <a href="#">Twitter</a>
+                <a href="#">Discord</a>
+                <a href="https://www.instagram.com/dr_neex_studio?igsh=dm83eDFibjJ2YjJ6" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vite Entry Point -->
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

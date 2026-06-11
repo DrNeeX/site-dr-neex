@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr RBackground | DR NEEX</title>
+    <meta name="description" content="Découvrez Dr RBackground, le module de détourage et rotoscopie IA en un clic de DR NEEX. Obtenez une segmentation au pixel près et des masques stables pour After Effects.">
+    <meta name="keywords" content="rotoscopie, détourage, AI rotoscoping, After Effects, plugin, DR NEEX, DR Concept, vert screen">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dr-concept.com/dr-rbackground.html">
+    <meta property="og:title" content="Dr RBackground - Rotoscopie IA | DR NEEX">
+    <meta property="og:description" content="Découvrez Dr RBackground, le module de détourage et rotoscopie IA en un clic de DR NEEX. Segmentation au pixel près et masques temporels stables.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- WebGL Background -->
+    <canvas id="webgl-bg"></canvas>
+
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="/logo-dr-neex.png" alt="DR NEEX" class="header-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                <span class="logo-text" style="display: none;">DR NEEX</span>
+                <div class="beta-tag">BETA</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" data-i18n="nav.backToSuite">← Back to Suite</a></li>
+                    <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
+                    <li><a href="#access" class="btn-nav btn-glass">Get Access</a></li>
+                    <li class="lang-switch">
+                        <button onclick="setLanguage('en')" class="lang-btn">EN</button>
+                        <span>/</span>
+                        <button onclick="setLanguage('fr')" class="lang-btn active">FR</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="plugin-page">
+        <section class="plugin-hero">
+            <div class="container">
+                <div class="plugin-header gsap-fade-up">
+                    <div class="plugin-icon">✂️</div>
+                    <h1>Dr <span class="gradient-text-secondary">RBackground</span></h1>
+                    <p class="plugin-subtitle">One-click AI Rotoscoping. Goodbye Green Screen.</p>
+                </div>
+            </div>
+
+            <div class="container-wide gsap-fade-up">
+                <!-- Video/Demo Showcase -->
+                <div class="video-placeholder-container">
+                    <div class="video-placeholder has-video">
+                        <video id="demo-video" autoplay loop muted playsinline>
+                            <source src="/dr-rbackground-opt.webm" type="video/webm">
+                            <source src="/dr-rbackground-opt.mp4" type="video/mp4">
+                            <source src="/dr rbackground.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="placeholder-glow"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="plugin-features">
+            <div class="container">
+                <h2 class="gsap-fade-up">Core <span class="gradient-text-primary">Capabilities</span></h2>
+                <div class="feature-grid">
+                    <div class="feature-card gsap-fade-up">
+                        <h3>Pixel-perfect Segmentation</h3>
+                        <p>Extract subjects with high-fidelity edge preservation, including hair and motion blur.</p>
+                    </div>
+                    <div class="feature-card gsap-fade-up">
+                        <h3>Temporal Consistency</h3>
+                        <p>Advanced optical flow ensures masks do not flicker between frames.</p>
+                    </div>
+                    <div class="feature-card gsap-fade-up">
+                        <h3>Zero Setup Time</h3>
+                        <p>No more manual tracking or roto-brushing. Apply the effect and let the Neural Engine do the work.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="industrial-specs">
+            <div class="container">
+                <h2 class="gsap-fade-up">Industrial <span class="gradient-text-secondary">Specs</span></h2>
+                <div class="specs-grid">
+                    <div class="spec-card gsap-fade-up">
+                        <h4>Hardware Target</h4>
+                        <p class="spec-value">RTX 2080 Ti</p>
+                        <p class="spec-detail">Optimized for 11 GB VRAM via Zero-Copy Buffers.</p>
+                    </div>
+                    <div class="spec-card gsap-fade-up">
+                        <h4>Neural Architecture</h4>
+                        <p class="spec-value">Dr Engine</p>
+                        <p class="spec-detail">Powered by our proprietary DR Core for sub-16ms inference.</p>
+                    </div>
+                    <div class="spec-card gsap-fade-up">
+                        <h4>Data Pipeline</h4>
+                        <p class="spec-value">Float 32bpc</p>
+                        <p class="spec-detail">Linear color space processing for true cinematic standards.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pro-workflow">
+            <div class="container">
+                <h2 class="gsap-fade-up">Pro <span class="gradient-text-primary">Workflow</span></h2>
+                <div class="workflow-content gsap-fade-up">
+                    <div class="workflow-text">
+                        <h3>Non-Blocking UI</h3>
+                        <p>Our custom TCP IPC architecture ensures that your After Effects viewport never freezes. Heavy ML tasks are completely offloaded to asynchronous background workers.</p>
+                        <br>
+                        <h3>IP Protection</h3>
+                        <p>Fully compliant with strict NDAs. Process your plates locally without sending a single pixel to the cloud. Your data, your rules.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <img src="/logo-decibel.png" alt="Decibel Records" class="footer-logo" onerror="this.style.display='none';">
+                <h3>DR NEEX</h3>
+                <p>&copy; <span id="year"></span> DECIBEL RECORDS / DR CONCEPT. All rights reserved.</p>
+            </div>
+            <div class="footer-socials">
+                <a href="#">Twitter</a>
+                <a href="#">Discord</a>
+                <a href="https://www.instagram.com/dr_neex_studio?igsh=dm83eDFibjJ2YjJ6" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vite Entry Point -->
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

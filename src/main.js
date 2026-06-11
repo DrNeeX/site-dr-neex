@@ -1,0 +1,442 @@
+import './styles/main.css';
+import { BackgroundShader } from './webgl/BackgroundShader.js';
+import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const translations = {
+    fr: {
+        nav: { home: "Accueil", software: "Modules", about: "Vision", pricing: "Tarifs", contact: "Accès Beta", backToSuite: "← Retour à la suite" },
+        hero: {
+            subtitle: "La suite ultime d'outils IA pour After Effects & Premiere Pro. Automatisez le banal, libérez l'impossible.",
+            cta1: "Explorer les Modules",
+            cta2: "Voir le Reel"
+        },
+        products: {
+            title: "La Suite <span class=\"gradient-text-primary\">Neex</span>",
+            subtitle: "Des modules puissants. Imbattables ensemble.",
+            lightgen: {
+                title: "Dr LightGen",
+                desc: "Rendu volumétrique IA. Re-éclairage PBR temps réel et Global Illumination pour After Effects."
+            },
+            rbackground: {
+                title: "Dr RBackground",
+                desc: "Rotoscopie IA en un clic. Segmentation au pixel près. Adieu fond vert."
+            },
+            librarypro: {
+                title: "Dr Library Pro",
+                desc: "L'extension ultime pour Premiere Pro & After Effects. Accédez à des milliers de presets, VFX et transitions en un clic.",
+                hero: {
+                    desc: "L'extension ultime pour Premiere Pro et After Effects. Accédez à des milliers de presets, effets VFX et transitions en un clic.",
+                    cta: "Télécharger la Version d'Essai"
+                },
+                features: {
+                    title: "Fonctionnalités <span class=\"gradient-text-secondary\">Clés</span>",
+                    f1Title: "Bibliothèque Infinite",
+                    f1Desc: "Plus de 1000+ presets de texte, transitions, et étalonnages couleurs prêts à l'emploi.",
+                    f2Title: "VFX Studio",
+                    f2Desc: "Intègre des effets visuels de qualité cinéma : éclairs, fumée, particules, sans quitter votre timeline.",
+                    f3Title: "Workflow Ultra-Rapide",
+                    f3Desc: "Prévisualisation instantanée au survol. Glissez-déposez pour appliquer. Gagnez des heures de montage."
+                },
+                contact: {
+                    title: "Prêt à créer ?",
+                    cta: "Nous Contacter"
+                }
+            }
+        },
+        about: {
+            title: "Conçu pour la <span class=\"highlight\">Vitesse</span>",
+            desc: "DR NEEX n'est pas juste une suite de plugins. C'est une nouvelle façon de penser la post-production. Nous combinons l'IA de pointe avec des workflows intuitifs."
+        },
+        contact: {
+            title: "Rejoignez la <span class=\"gradient-text-secondary\">Révolution</span>",
+            subtitle: "Obtenez un accès anticipé à la beta et commencez à créer.",
+            placeholder: "votre_email",
+            submit: "Demander l'Accès",
+            successTitle: "Bienvenue dans la Beta !",
+            successDesc: "Nous avons enregistré votre adresse : <span class=\"success-email\">{email}</span>.<br>Vous recevrez votre invitation très bientôt."
+        },
+        pricing: {
+            title: "Tarifs & <span class=\"gradient-text-primary\">Abonnements</span>",
+            subtitle: "Choisissez l'offre adaptée à votre workflow de production visuelle.",
+            tiers: {
+                trial: {
+                    name: "Version d'Essai",
+                    price: "0€",
+                    period: "Gratuit",
+                    desc: "1 mois d'accès complet offert (offre de lancement sur 5 mois, limite 1 compte/PC), puis bascule vers l'offre Trial standard (1h/mois).",
+                    cta: "Télécharger"
+                },
+                pro: {
+                    name: "Pro Mensuel",
+                    price: "29€",
+                    period: "/ mois",
+                    desc: "Accès illimité à tous nos modules et fonctionnalités avancées.",
+                    cta: "S'abonner"
+                },
+                lifetime: {
+                    name: "Licence à Vie",
+                    price: "399€",
+                    period: "Achat unique",
+                    desc: "La suite complète DR Concept à vie. Sans abonnement, mises à jour incluses.",
+                    cta: "Acheter"
+                }
+            },
+            features: {
+                resolution: "Résolution Maximale",
+                unlimited: "Illimitée (4K+)",
+                timeLimit: "Quota de traitement",
+                timeLimitVal: "1 heure / mois",
+                bitDepth: "Profondeur de couleur",
+                bitDepthVal: "10-bit max",
+                bitDepthPro: "32-bit Linéaire (EXR)",
+                models: "Modèles d'IA",
+                modelsVal: "Standard uniquement",
+                modelsPro: "Accès complet (SOTA)",
+                alphaMatting: "Alpha Matting & Détourage",
+                upscale: "Super Résolution (Upscale 4x)",
+                compression: "Compression des exports",
+                compressionVal: "Forte (Niveau 6)",
+                compressionPro: "Personnalisable (Niveaux 1-9)",
+                contour: "Options de contour",
+                contourVal: "Standard / Rapide uniquement",
+                contourPro: "Haute Qualité (Advanced)"
+            },
+            comparison: {
+                title: "Comparatif Détaillé",
+                feature: "Fonctionnalité",
+                trial: "Trial",
+                pro: "Pro & Lifetime"
+            }
+        }
+    },
+    en: {
+        nav: { home: "Home", software: "Modules", about: "Vision", pricing: "Pricing", contact: "Get Access", backToSuite: "← Back to Suite" },
+        hero: {
+            subtitle: "The ultimate suite of AI tools for After Effects & Premiere Pro. Automate the mundane, unleash the impossible.",
+            cta1: "Explore Modules",
+            cta2: "Watch Reel"
+        },
+        products: {
+            title: "The <span class=\"gradient-text-primary\">Neex Suite</span>",
+            subtitle: "Powerful individual modules. Unstoppable together.",
+            lightgen: {
+                title: "Dr LightGen",
+                desc: "AI Volumetric Rendering. Real-time PBR Relighting and Global Illumination for After Effects."
+            },
+            rbackground: {
+                title: "Dr RBackground",
+                desc: "One-click AI Rotoscoping. Pixel-perfect segmentation. Goodbye Green Screen."
+            },
+            librarypro: {
+                title: "Dr Library Pro",
+                desc: "The ultimate extension for Premiere Pro & After Effects. Access thousands of presets, VFX and transitions in one click.",
+                hero: {
+                    desc: "The ultimate extension for Premiere Pro and After Effects. Access thousands of presets, VFX effects, and transitions in one click.",
+                    cta: "Download Trial Version"
+                },
+                features: {
+                    title: "Core <span class=\"gradient-text-secondary\">Capabilities</span>",
+                    f1Title: "Infinite Library",
+                    f1Desc: "Over 1000+ text presets, transitions, and color gradings ready to use.",
+                    f2Title: "VFX Studio",
+                    f2Desc: "Integrate cinema-quality visual effects: lightning, smoke, particles, without leaving your timeline.",
+                    f3Title: "Ultra-Fast Workflow",
+                    f3Desc: "Instant hover preview. Drag and drop to apply. Save hours of editing."
+                },
+                contact: {
+                    title: "Ready to create?",
+                    cta: "Contact Us"
+                }
+            }
+        },
+        about: {
+            title: "Built for <span class=\"highlight\">Speed</span>",
+            desc: "DR NEEX isn't just a set of plugins. It's a new way to think about post-production. We combine state-of-the-art AI with intuitive workflows."
+        },
+        contact: {
+            title: "Join the <span class=\"gradient-text-secondary\">Revolution</span>",
+            subtitle: "Get early access to the beta and start creating.",
+            placeholder: "enter_your_email",
+            submit: "Request Access",
+            successTitle: "Welcome to the Beta!",
+            successDesc: "We've registered your email: <span class=\"success-email\">{email}</span>.<br>You will receive your invite token shortly."
+        },
+        pricing: {
+            title: "Pricing & <span class=\"gradient-text-primary\">Subscriptions</span>",
+            subtitle: "Choose the perfect plan for your visual production workflow.",
+            tiers: {
+                trial: {
+                    name: "Trial Version",
+                    price: "€0",
+                    period: "Free",
+                    desc: "1 month of free full access (launch offer for 5 months, limit 1 account/PC), then reverts to standard Trial (1h/month).",
+                    cta: "Download"
+                },
+                pro: {
+                    name: "Pro Monthly",
+                    price: "€29",
+                    period: "/ month",
+                    desc: "Unlimited access to all modules and advanced features.",
+                    cta: "Subscribe"
+                },
+                lifetime: {
+                    name: "Lifetime License",
+                    price: "€399",
+                    period: "One-time purchase",
+                    desc: "The full DR Concept suite forever. No subscription, free updates.",
+                    cta: "Buy Now"
+                }
+            },
+            features: {
+                resolution: "Max Resolution",
+                unlimited: "Unlimited (4K+)",
+                timeLimit: "Processing Time",
+                timeLimitVal: "1 hour / month",
+                bitDepth: "Color Bit Depth",
+                bitDepthVal: "10-bit max",
+                bitDepthPro: "32-bit Linear (EXR)",
+                models: "AI Models",
+                modelsVal: "Standard only",
+                modelsPro: "Full Access (SOTA)",
+                alphaMatting: "Alpha Matting & Refinement",
+                upscale: "4x Super Resolution",
+                compression: "Export Compression",
+                compressionVal: "Strong (Level 6)",
+                compressionPro: "Customizable (Levels 1-9)",
+                contour: "Contour Options",
+                contourVal: "Standard / Fast only",
+                contourPro: "High Quality (Advanced)"
+            },
+            comparison: {
+                title: "Detailed Comparison",
+                feature: "Feature",
+                trial: "Trial",
+                pro: "Pro & Lifetime"
+            }
+        }
+    }
+};
+
+function setLanguage(lang) {
+    const elements = document.querySelectorAll('[data-i18n]');
+    const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+
+    elements.forEach(el => {
+        const keys = el.getAttribute('data-i18n').split('.');
+        let value = translations[lang];
+        keys.forEach(k => { if (value) value = value[k]; });
+
+        if (value) {
+            if (value.includes('<')) {
+                el.innerHTML = value;
+            } else {
+                el.textContent = value;
+            }
+        }
+    });
+
+    placeholders.forEach(el => {
+        const keys = el.getAttribute('data-i18n-placeholder').split('.');
+        let value = translations[lang];
+        keys.forEach(k => { if (value) value = value[k]; });
+        if (value) el.placeholder = value;
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase() === lang) {
+            btn.classList.add('active');
+        }
+    });
+
+    const successDescEl = document.getElementById('success-desc');
+    if (successDescEl) {
+        const email = localStorage.getItem('dr_neex_registered_email') || '';
+        successDescEl.innerHTML = translations[lang].contact.successDesc.replace('{email}', email);
+    }
+
+    localStorage.setItem('dr_neex_lang', lang);
+    document.documentElement.lang = lang;
+}
+
+// Ensure setLanguage is globally available for inline onclick
+window.setLanguage = setLanguage;
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Initialize Lenis (Smooth Scroll)
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // 2. Initialize WebGL Background
+    new BackgroundShader('webgl-bg');
+
+
+
+    // 4. GSAP Scroll Animations
+    gsap.utils.toArray('.gsap-fade-up').forEach(element => {
+        gsap.fromTo(element, 
+            { y: 50, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 85%",
+                    toggleActions: "play none none none"
+                }
+            }
+        );
+    });
+
+    // 5. Header Scroll Effect
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.style.background = 'rgba(3, 3, 4, 0.95)';
+            header.style.padding = '1rem 0';
+        } else {
+            header.style.background = 'transparent';
+            header.style.padding = '1.5rem 0';
+        }
+    });
+
+    // 6. Init Language
+    const savedLang = localStorage.getItem('dr_neex_lang') || 'en';
+    setLanguage(savedLang);
+
+    // 7. Dynamic Year
+    const yearSpan = document.getElementById('year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+
+    // 8. Beta Access Form Handling
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        // Create dynamic error message container
+        const errorMsg = document.createElement('div');
+        errorMsg.className = 'form-error-msg';
+        newsletterForm.appendChild(errorMsg);
+
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+
+        newsletterForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Reset state
+            errorMsg.classList.remove('visible');
+            errorMsg.textContent = '';
+            
+            const email = emailInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!emailRegex.test(email)) {
+                const currentLang = localStorage.getItem('dr_neex_lang') || 'en';
+                errorMsg.textContent = currentLang === 'fr' ? 'Veuillez saisir un e-mail valide.' : 'Please enter a valid email.';
+                errorMsg.classList.add('visible');
+                return;
+            }
+
+            // Set loading state
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+            emailInput.disabled = true;
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        access_key: "e43ca25e-267a-4341-a226-fcd0f377f8bd",
+                        email: email,
+                        subject: "Nouvelle inscription Bêta - DR NEEX",
+                        from_name: "Site DR NEEX"
+                    }),
+                });
+
+                const result = await response.json();
+
+                if (!response.ok || result.success === false) {
+                    throw new Error(result.message || 'Error occurred');
+                }
+
+                // Save to localstorage
+                localStorage.setItem('dr_neex_registered_email', email);
+
+                const currentLang = localStorage.getItem('dr_neex_lang') || 'en';
+                const successTitle = translations[currentLang].contact.successTitle;
+                const successDesc = translations[currentLang].contact.successDesc.replace('{email}', email);
+
+                const accessCard = document.querySelector('#access .access-card');
+                if (accessCard) {
+                    // Fade out existing content
+                    gsap.to(accessCard.children, {
+                        opacity: 0,
+                        y: -20,
+                        duration: 0.4,
+                        stagger: 0.1,
+                        onComplete: () => {
+                            // Clear and inject success card
+                            accessCard.innerHTML = `
+                                <div class="access-success-panel">
+                                    <div class="success-icon">✨</div>
+                                    <h2 class="success-title" data-i18n="contact.successTitle">${successTitle}</h2>
+                                    <p class="success-message" id="success-desc">${successDesc}</p>
+                                </div>
+                            `;
+                        }
+                    });
+                }
+            } catch (err) {
+                console.error('Beta registration error:', err);
+                const currentLang = localStorage.getItem('dr_neex_lang') || 'en';
+                errorMsg.textContent = currentLang === 'fr' 
+                    ? 'Impossible de se connecter au serveur. Veuillez réessayer.' 
+                    : 'Unable to reach the server. Please try again.';
+                errorMsg.classList.add('visible');
+                
+                // Reset button state
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+                emailInput.disabled = false;
+            }
+        });
+    }
+
+    // 9. Check if already registered
+    const registeredEmail = localStorage.getItem('dr_neex_registered_email');
+    if (registeredEmail) {
+        const accessCard = document.querySelector('#access .access-card');
+        if (accessCard) {
+            const currentLang = localStorage.getItem('dr_neex_lang') || 'en';
+            const successTitle = translations[currentLang].contact.successTitle;
+            const successDesc = translations[currentLang].contact.successDesc.replace('{email}', registeredEmail);
+            accessCard.innerHTML = `
+                <div class="access-success-panel">
+                    <div class="success-icon">✨</div>
+                    <h2 class="success-title" data-i18n="contact.successTitle">${successTitle}</h2>
+                    <p class="success-message" id="success-desc">${successDesc}</p>
+                </div>
+            `;
+        }
+    }
+});

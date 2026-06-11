@@ -1,0 +1,10 @@
+node_modules/
+dist/
+leads.json
+.env
+.env.local
+.env.development
+.env.production
+.env.staging
+.DS_Store
+*.log

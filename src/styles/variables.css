@@ -1,0 +1,35 @@
+:root {
+    --bg-color: #030304;
+    --bg-surface: #0A0A0F;
+    --bg-surface-glass: rgba(10, 10, 15, 0.6);
+    --border-glass: rgba(255, 255, 255, 0.05);
+
+    --text-primary: #FFFFFF;
+    --text-secondary: #8F9098;
+    --text-tertiary: #5D5E66;
+
+    --accent-primary: #00F2FF; /* Cyan */
+    --accent-secondary: #BD00FF; /* Electric Purple */
+    --accent-glow: rgba(0, 242, 255, 0.5);
+
+    --gradient-primary: linear-gradient(135deg, #00F2FF 0%, #0088FF 100%);
+    --gradient-secondary: linear-gradient(135deg, #BD00FF 0%, #FF0055 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    --gradient-text: linear-gradient(90deg, #FFFFFF 0%, #8F9098 100%);
+
+    --font-main: 'Outfit', sans-serif;
+    --spacing-container: 1200px;
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 32px;
+
+    --transition-fast: 0.2s cubic-bezier(0.2, 0, 0, 1);
+    --transition-smooth: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    
+    --z-background: -10;
+    --z-webgl: -1;
+    --z-content: 10;
+    --z-header: 100;
+    --z-cursor: 9999;
+}
