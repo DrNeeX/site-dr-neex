@@ -280,6 +280,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     requestAnimationFrame(raf);
 
+    // 1.5. Mobile Menu Toggle
+    const menuTrigger = document.querySelector('.mobile-menu-trigger');
+    const headerEl = document.querySelector('header');
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    if (menuTrigger && headerEl) {
+        menuTrigger.addEventListener('click', () => {
+            const isOpen = headerEl.classList.toggle('menu-open');
+            if (isOpen) {
+                lenis.stop();
+                document.body.style.overflow = 'hidden';
+            } else {
+                lenis.start();
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (headerEl.classList.contains('menu-open')) {
+                    headerEl.classList.remove('menu-open');
+                    lenis.start();
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    }
+
     // 2. Initialize WebGL Background
     new BackgroundShader('webgl-bg');
 

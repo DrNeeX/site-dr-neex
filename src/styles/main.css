@@ -169,6 +169,26 @@ nav a:hover {
     color: var(--text-primary);
 }
 
+/* --- Mobile Menu Trigger --- */
+.mobile-menu-trigger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: calc(var(--z-header) + 10);
+}
+
+.mobile-menu-trigger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-primary);
+    transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), opacity 0.3s ease;
+}
+
 /* --- Buttons --- */
 .btn {
     display: inline-flex;
@@ -575,10 +595,6 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    nav {
-        display: none;
-    }
-
     h1 {
         font-size: 3rem;
     }
@@ -965,6 +981,198 @@ footer {
 .form-error-msg.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* --- Responsive Media Queries (Mobile & Tablet) --- */
+@media (max-width: 900px) {
+    /* 1. Header & Navigation */
+    .mobile-menu-trigger {
+        display: flex;
+    }
+
+    nav {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+        background: rgba(3, 3, 4, 0.98);
+        border-left: 1px solid var(--border-glass);
+        backdrop-filter: blur(20px);
+        padding: 8rem 2rem 2rem;
+        transition: right 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        z-index: var(--z-header);
+    }
+
+    header.menu-open nav {
+        right: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        font-size: 1.25rem;
+        display: block;
+        width: 100%;
+    }
+
+    /* Animate trigger to cross */
+    header.menu-open .mobile-menu-trigger span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    header.menu-open .mobile-menu-trigger span:nth-child(2) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* 2. Hero Section */
+    #hero {
+        padding-top: 100px;
+        text-align: left;
+    }
+
+    #hero h1 {
+        font-size: clamp(2.5rem, 10vw, 4.5rem);
+    }
+
+    .cta-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .cta-group .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* 3. Bento Grid & Modules */
+    #modules {
+        padding: 5rem 0;
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+    }
+
+    .bento-card {
+        padding: 2rem;
+        min-height: 320px;
+    }
+
+    .bento-card h3 {
+        font-size: 2rem;
+    }
+
+    /* 4. Vision Section */
+    #vision {
+        padding: 5rem 0;
+    }
+
+    .vision-content {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .vision-stats {
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .stat-number {
+        font-size: 3rem;
+    }
+
+    /* 5. Access Section & Form */
+    #access {
+        padding: 3rem 0;
+    }
+
+    .access-card {
+        padding: 3rem 1.5rem;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        gap: 1rem;
+    }
+
+    .newsletter-form input {
+        height: 50px;
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .newsletter-form button {
+        width: 100%;
+        justify-content: center;
+        height: 50px;
+    }
+
+    /* 6. Footer */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .footer-socials {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    /* 7. Plugin pages specific overrides */
+    .plugin-hero {
+        padding-top: 120px;
+    }
+
+    .plugin-header h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+    }
+
+    .feature-grid, .specs-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+    }
+
+    .video-placeholder-container {
+        padding: 0;
+    }
+
+    .video-placeholder {
+        aspect-ratio: 16/9;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    #hero h1 {
+        font-size: 2.25rem;
+    }
+
+    .plugin-header h1 {
+        font-size: 2.25rem;
+    }
+
+    .access-card h2 {
+        font-size: 1.5rem;
+    }
 }
 
 
