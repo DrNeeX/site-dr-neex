@@ -51,6 +51,10 @@ const translations = {
             title: "Conçu pour la <span class=\"highlight\">Vitesse</span>",
             desc: "DR NEEX n'est pas juste une suite de plugins. C'est une nouvelle façon de penser la post-production. Nous combinons l'IA de pointe avec des workflows intuitifs."
         },
+        showcase: {
+            title: "DR NEEX <span class=\"gradient-text-primary\">en Action</span>",
+            subtitle: "Découvrez la puissance de nos algorithmes de traitement d'images neuronaux temps réel."
+        },
         contact: {
             title: "Rejoignez la <span class=\"gradient-text-secondary\">Révolution</span>",
             subtitle: "Obtenez un accès anticipé à la beta et commencez à créer.",
@@ -156,6 +160,10 @@ const translations = {
         about: {
             title: "Built for <span class=\"highlight\">Speed</span>",
             desc: "DR NEEX isn't just a set of plugins. It's a new way to think about post-production. We combine state-of-the-art AI with intuitive workflows."
+        },
+        showcase: {
+            title: "DR NEEX <span class=\"gradient-text-primary\">in Action</span>",
+            subtitle: "Experience the power of our real-time neural VFX engine."
         },
         contact: {
             title: "Join the <span class=\"gradient-text-secondary\">Revolution</span>",
@@ -467,5 +475,139 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
         }
+    }
+
+    // 10. 3D Coverflow Carousel
+    const carouselTrack = document.querySelector('.carousel-track');
+    const cards = document.querySelectorAll('.carousel-card');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    if (carouselTrack && cards.length > 0) {
+        let activeIndex = 0;
+        let autoPlayInterval;
+
+        function updateCarousel() {
+            cards.forEach((card, index) => {
+                const distance = index - activeIndex;
+                const absDistance = Math.abs(distance);
+
+                // Check if screen is mobile (max-width: 900px)
+                const isMobile = window.innerWidth <= 900;
+                const isUltraMobile = window.innerWidth <= 480;
+
+                card.classList.remove('active');
+
+                if (distance === 0) {
+                    card.classList.add('active');
+                    if (isMobile) {
+                        card.style.transform = 'translate(-50%, -50%) scale(1) translateZ(0)';
+                    } else {
+                        card.style.transform = 'translate(-50%, -50%) translateZ(120px) rotateY(0deg)';
+                    }
+                    card.style.opacity = '1';
+                    card.style.zIndex = '10';
+                    card.style.pointerEvents = 'auto';
+
+                    // Play video if card has one
+                    const video = card.querySelector('video');
+                    if (video) {
+                        video.play().catch(() => {});
+                    }
+                } else {
+                    // Pause video on inactive cards
+                    const video = card.querySelector('video');
+                    if (video) {
+                        video.pause();
+                    }
+
+                    if (isUltraMobile) {
+                        // On very small screens, hide inactive cards to avoid overlap issues
+                        card.style.transform = 'translate(-50%, -50%) scale(0.6)';
+                        card.style.opacity = '0';
+                        card.style.zIndex = '1';
+                        card.style.pointerEvents = 'none';
+                    } else if (isMobile) {
+                        // Basic 2D layout for mobile
+                        const translateX = distance * 80;
+                        card.style.transform = `translate(calc(-50% + ${translateX}px), -50%) scale(0.75)`;
+                        card.style.opacity = '0.5';
+                        card.style.zIndex = (10 - absDistance).toString();
+                        card.style.pointerEvents = 'auto';
+                    } else {
+                        // Standard 3D Coverflow for desktop/tablets
+                        const translateX = distance * 180 - (Math.sign(distance) * 40);
+                        const translateZ = -120 * absDistance;
+                        const rotateY = -45 * Math.sign(distance);
+                        card.style.transform = `translate(calc(-50% + ${translateX}px), -50%) translateZ(${translateZ}px) rotateY(${rotateY}deg)`;
+                        card.style.opacity = absDistance > 2 ? '0' : '0.6';
+                        card.style.zIndex = (10 - absDistance).toString();
+                        card.style.pointerEvents = absDistance > 2 ? 'none' : 'auto';
+                    }
+                }
+            });
+        }
+
+        function slideNext() {
+            activeIndex = (activeIndex + 1) % cards.length;
+            updateCarousel();
+        }
+
+        function slidePrev() {
+            activeIndex = (activeIndex - 1 + cards.length) % cards.length;
+            updateCarousel();
+        }
+
+        function startAutoPlay() {
+            if (!autoPlayInterval) {
+                autoPlayInterval = setInterval(slideNext, 3000);
+            }
+        }
+
+        function stopAutoPlay() {
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = null;
+            }
+        }
+
+        // Event listeners for controls
+        if (nextBtn) nextBtn.addEventListener('click', () => {
+            slideNext();
+            stopAutoPlay();
+            startAutoPlay();
+        });
+
+        if (prevBtn) prevBtn.addEventListener('click', () => {
+            slidePrev();
+            stopAutoPlay();
+            startAutoPlay();
+        });
+
+        // Click directly on a side card to focus it
+        cards.forEach((card, index) => {
+            card.addEventListener('click', () => {
+                if (index !== activeIndex) {
+                    activeIndex = index;
+                    updateCarousel();
+                    stopAutoPlay();
+                    startAutoPlay();
+                }
+            });
+        });
+
+        // Pause autoplay on mouse hover
+        const container = document.querySelector('.carousel-container');
+        if (container) {
+            container.addEventListener('mouseenter', stopAutoPlay);
+            container.addEventListener('mouseleave', startAutoPlay);
+        }
+
+        // Handle window resize to adapt layout
+        window.addEventListener('resize', updateCarousel);
+
+        // Initial launch
+        updateCarousel();
+        startAutoPlay();
     }
 });
