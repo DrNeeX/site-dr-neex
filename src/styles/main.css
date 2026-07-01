@@ -1116,7 +1116,8 @@ footer {
 .next-btn {
     right: -40px;
 }/* --- Library Gallery Grid --- */
-.library-gallery {
+.library-gallery,
+.rbackground-gallery {
     padding: 8rem 0;
     border-top: 1px solid var(--border-glass);
     background: radial-gradient(circle at center, #07070b 0%, #030304 100%);

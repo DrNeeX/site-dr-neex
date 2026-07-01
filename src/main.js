@@ -23,7 +23,19 @@ const translations = {
             },
             rbackground: {
                 title: "Dr RBackground",
-                desc: "Rotoscopie IA en un clic. Segmentation au pixel près. Adieu fond vert."
+                desc: "Rotoscopie IA en un clic. Segmentation au pixel près. Adieu fond vert.",
+                gallery: {
+                    title: "Interface & Contrôles",
+                    subtitle: "Un espace de travail indépendant épuré, conçu pour le masquage rapide de qualité cinéma.",
+                    a1Title: "Espace Neural Workspace",
+                    a1Desc: "Interface autonome intuitive pour une rotoscopie vidéo instantanée en temps réel.",
+                    a2Title: "Outils de Sélection IA",
+                    a2Desc: "Sélectionnez rapidement les sujets à suivre, les pinceaux d'ajustement et les zones guidées par invite.",
+                    a3Title: "Raffinement du Masque",
+                    a3Desc: "Ajustez la douceur des contours, le suivi des cheveux, l'opacité et les filtres temporels d'optical flow.",
+                    a4Title: "Rendu Haute Fidélité",
+                    a4Desc: "Prévisualisation en temps réel des masques de canal alpha avec une transparence de contour ultra-précise."
+                }
             },
             librarypro: {
                 title: "Dr Library Pro",
@@ -145,7 +157,19 @@ const translations = {
             },
             rbackground: {
                 title: "Dr RBackground",
-                desc: "One-click AI Rotoscoping. Pixel-perfect segmentation. Goodbye Green Screen."
+                desc: "One-click AI Rotoscoping. Pixel-perfect segmentation. Goodbye Green Screen.",
+                gallery: {
+                    title: "Interface & Controls",
+                    subtitle: "A clean standalone workspace built for fast cinema-grade masking.",
+                    a1Title: "Neural Workspace",
+                    a1Desc: "Intuitive standalone interface for instant real-time video rotoscoping.",
+                    a2Title: "AI Selection Tools",
+                    a2Desc: "Quickly select tracking subjects, adjustment brushes and prompt-guided zones.",
+                    a3Title: "Mask Refinement",
+                    a3Desc: "Fine-tune edge softeness, hair tracking, opacity and optical flow temporal filters.",
+                    a4Title: "High-Fidelity Output",
+                    a4Desc: "Real-time preview of alpha channel masks with precise edge transparency."
+                }
             },
             librarypro: {
                 title: "Dr Library Pro",
