@@ -44,6 +44,18 @@ const translations = {
                 contact: {
                     title: "Prêt à créer ?",
                     cta: "Nous Contacter"
+                },
+                gallery: {
+                    title: "Explorez les Ressources",
+                    subtitle: "Accédez directement à des ressources premium depuis votre panneau After Effects & Premiere Pro.",
+                    a1Title: "Modèles 3D & Objets",
+                    a1Desc: "Des objets 3D haute qualité optimisés pour des rendus rapides.",
+                    a2Title: "Matériaux PBR",
+                    a2Desc: "Des textures sans couture (seamless) avec canaux de normales, rugosité et réflectivité.",
+                    a3Title: "Environnements HDRI",
+                    a3Desc: "Des cartes haute plage dynamique pour des éclairages de scène réalistes.",
+                    a4Title: "Sound Design Cinéma",
+                    a4Desc: "Une bibliothèque d'effets sonores (SFX) haute fidélité pour enrichir vos projets visuels."
                 }
             }
         },
@@ -154,6 +166,18 @@ const translations = {
                 contact: {
                     title: "Ready to create?",
                     cta: "Contact Us"
+                },
+                gallery: {
+                    title: "Explore the Library Assets",
+                    subtitle: "Direct access to premium resources directly from your host panel.",
+                    a1Title: "3D Models & Assets",
+                    a1Desc: "High-quality objects optimized for fast rendering.",
+                    a2Title: "PBR Materials",
+                    a2Desc: "Seamless textures with full normal, roughness, and metalness maps.",
+                    a3Title: "HDRI Lighting",
+                    a3Desc: "High dynamic range maps for realistic scene lighting.",
+                    a4Title: "Cinema Sound Design",
+                    a4Desc: "High-fidelity SFX library to enhance your dynamic visual projects."
                 }
             }
         },
