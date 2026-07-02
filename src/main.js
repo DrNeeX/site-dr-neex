@@ -67,7 +67,8 @@ const translations = {
                     a3Title: "Environnements HDRI",
                     a3Desc: "Des cartes haute plage dynamique pour des éclairages de scène réalistes.",
                     a4Title: "Sound Design Cinéma",
-                    a4Desc: "Une bibliothèque d'effets sonores (SFX) haute fidélité pour enrichir vos projets visuels."
+                    a4Desc: "Une bibliothèque d'effets sonores (SFX) haute fidélité pour enrichir vos projets visuels.",
+                    partners: '<span style="color: var(--text-primary); font-weight: 500;">Écosystème intégré :</span> Dr Library Pro se connecte directement aux plus grands registres d\'actifs. Téléchargez des milliers de modèles 3D, textures et HDRI sous licence CC0 issus de partenaires de référence comme <a href="https://polyhaven.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); font-weight: 600; text-decoration: none; transition: color 0.3s;">Poly Haven</a> et <a href="https://sketchfab.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); font-weight: 600; text-decoration: none; transition: color 0.3s;">Sketchfab</a> en un seul clic.'
                 }
             }
         },
@@ -201,7 +202,8 @@ const translations = {
                     a3Title: "HDRI Lighting",
                     a3Desc: "High dynamic range maps for realistic scene lighting.",
                     a4Title: "Cinema Sound Design",
-                    a4Desc: "High-fidelity SFX library to enhance your dynamic visual projects."
+                    a4Desc: "High-fidelity SFX library to enhance your dynamic visual projects.",
+                    partners: '<span style="color: var(--text-primary); font-weight: 500;">Integrated Ecosystem:</span> Dr Library Pro connects directly to major asset registries. Download thousands of CC0 models, textures and HDRIs from industry-standard partners like <a href="https://polyhaven.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); font-weight: 600; text-decoration: none; transition: color 0.3s;">Poly Haven</a> and <a href="https://sketchfab.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); font-weight: 600; text-decoration: none; transition: color 0.3s;">Sketchfab</a> in a single click.'
                 }
             }
         },
